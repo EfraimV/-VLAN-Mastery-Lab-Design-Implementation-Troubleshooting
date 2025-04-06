@@ -1,0 +1,7 @@
+- name: Deploy VLAN Configs
+  hosts: switches
+  tasks:
+    - name: Push VLAN configs
+      ansible.netcommon.cli_config:
+        config: "{{ lookup('file', 'cisco_configs/access_switch.cfg') }}"
+        backup: yes
